@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jresendiz/.oh-my-zsh
+export ZSH=`echo $HOME`/.oh-my-zsh
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=1000000                   # big big history
@@ -58,15 +58,15 @@ ZSH_THEME="gnzh" #avit
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git setopt share_history vagrant tmux tmuxinator)
 
-export GOPATH="/Users/jresendiz/.go"
+export GOPATH="`echo $HOME`.go"
 # User configuration
 
-export PATH="/Users/jresendiz/.sdkman/candidates/groovy/current/bin:/Users/jresendiz/.sdkman/candidates/grails/current/bin:/Users/jresendiz/.sdkman/candidates/gradle/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# export PATH="/Users/jresendiz/.sdkman/candidates/groovy/current/bin:/Users/jresendiz/.sdkman/candidates/grails/current/bin:/Users/jresendiz/.sdkman/candidates/gradle/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/.bin/tmuxinator.zsh
+# source ~/.bin/tmuxinator.zsh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -148,12 +148,12 @@ echo -e "\n"
 
 fortune -a
 
-export SDKMAN_DIR="/Users/jresendiz/.sdkman"
-[[ -s "/Users/jresendiz/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jresendiz/.sdkman/bin/sdkman-init.sh"
+#export NVM_DIR="`echo $HOME`/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#export PATH="$HOME/.jenv/bin:$PATH"
 
-export NVM_DIR="/Users/jresendiz/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="`echo $HOME`/.sdkman"
+[[ -s "`echo $HOME`/.sdkman/bin/sdkman-init.sh" ]] && source "`echo $HOME`/.sdkman/bin/sdkman-init.sh"
 
 export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'
