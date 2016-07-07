@@ -4,7 +4,7 @@ export ZSH=`echo $HOME`/.oh-my-zsh
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=1000000                   # big big history
 export HISTFILESIZE=1000000               # big big history
-#shopt -s histappend 
+#shopt -s histappend
 
 export EDITOR='subl'
 
@@ -147,8 +147,8 @@ echo -e "\n"
 
 fortune -a
 
-#export NVM_DIR="`echo $HOME`/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="`echo $HOME`/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 #export PATH="$HOME/.jenv/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
