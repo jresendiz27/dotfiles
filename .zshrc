@@ -12,7 +12,7 @@ export EDITOR='atom'
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="gnzh" #avit
+ZSH_THEME="miloshadzic" #avit, gnzh(ruby) gallifrey
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -56,7 +56,7 @@ ZSH_THEME="gnzh" #avit
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git setopt share_history vagrant tmux tmuxinator)
+plugins=(git setopt share_history vagrant tmux tmuxinator postgres)
 
 export GOPATH="`echo $HOME`.go"
 # User configuration
@@ -93,15 +93,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Skytouch
+clear
 
+# Skytouch
 
 alias choiceVPNConnect='openconnect --user=juan.resendiz phcvpn.choicehotels.com'
 export MAVEN_KEYSTORE="~/.maven_keystore"
 export MAVEN_OPTS="-Xms512m -Djavax.net.ssl.trustStore=%MAVEN_KEYSTORE% -Djsse.enableSNIExtension=false"
 
 #Personal Alias and variables
-alias startPostgressServer='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+
 export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'
 
 # Personal stuff
@@ -114,9 +115,11 @@ echo -e "\e[00;36m#          |__/|__/\__/_/\__/\___/_/_/_/\__/ /____/\__/\__/\__
 echo -e "\e[00;36m#                                                                                #\e[00m"
 echo -e "\e[00;36m#                                                                                #\e[00m"
 echo -e "\e[00;36m##################################################################################\e[00m"
-
+echo -e ""
+echo -e ""
 fortune -a
-
+echo -e ""
+echo -e ""
 export NVM_DIR="`echo $HOME`/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 #export PATH="$HOME/.jenv/bin:$PATH"
@@ -124,3 +127,9 @@ export NVM_DIR="`echo $HOME`/.nvm"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="`echo $HOME`/.sdkman"
 [[ -s "`echo $HOME`/.sdkman/bin/sdkman-init.sh" ]] && source "`echo $HOME`/.sdkman/bin/sdkman-init.sh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
