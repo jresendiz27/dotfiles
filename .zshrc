@@ -6,7 +6,7 @@ export HISTSIZE=1000000                   # big big history
 export HISTFILESIZE=1000000               # big big history
 #shopt -s histappend
 
-export EDITOR='subl'
+export EDITOR='atom'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -100,6 +100,9 @@ alias choiceVPNConnect='openconnect --user=juan.resendiz phcvpn.choicehotels.com
 export MAVEN_KEYSTORE="~/.maven_keystore"
 export MAVEN_OPTS="-Xms512m -Djavax.net.ssl.trustStore=%MAVEN_KEYSTORE% -Djsse.enableSNIExtension=false"
 
+#Personal Alias
+
+alias startPostgressServer='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 
 # Personal stuff
 echo -e "\e[00;36m##################################################################################\e[00m"
@@ -111,39 +114,6 @@ echo -e "\e[00;36m#          |__/|__/\__/_/\__/\___/_/_/_/\__/ /____/\__/\__/\__
 echo -e "\e[00;36m#                                                                                #\e[00m"
 echo -e "\e[00;36m#                                                                                #\e[00m"
 echo -e "\e[00;36m##################################################################################\e[00m"
-echo -e "\e[00;36m##################################################################################\e[00m"
-echo -e "\e[00;36m#               ▄▄▄▄                                                             #\e[00m"
-echo -e "\e[00;36m#            ▄▀▀▐╒ ─▀▄                                                           #\e[00m"
-echo -e "\e[00;36m#          ▐▌       █╕                                                           #\e[00m"
-echo -e "\e[00;36m#          └█      ▐▌                                                            #\e[00m"
-echo -e "\e[00;36m#       ▄▄▄▄█     ╒█                                                             #\e[00m"
-echo -e "\e[00;36m#      █╒  ▐╘     █╒                                                             #\e[00m"
-echo -e "\e[00;36m#     █┌         █▀                                                   ▄█▀▀█▄     #\e[00m"
-echo -e "\e[00;36m#    ▐▀         █▀▄                     ▄██▄█▄                       ╒▌    ▀▌    #\e[00m"
-echo -e "\e[00;36m#    █         ▐▀▐▌              ▄▄▄▄█▀▀██▄▌╙▀█                      █─     ▀▌   #\e[00m"
-echo -e "\e[00;36m#   ▐▌         ▌  █═        ╒▄▀▀▀╘            ╙▀▀▄▄                 ╒▌       █   #\e[00m"
-echo -e "\e[00;36m#   █┌        █   ▐▌     ▄███▀                    └▀▀▄              █▌       ▀▌  #\e[00m"
-echo -e "\e[00;36m#   █        ▐▀    █   ╔█▀   ▀                     ▄██▀▄            █        └▌  #\e[00m"
-echo -e "\e[00;36m#   █        █     █  █▀                         ╒╜╙╤╙▀██═        ▄█▌         █  #\e[00m"
-echo -e "\e[00;36m#   ▐▄       ▌     █▄█╘       ═     ═╗══╒       ┘       ▀█       ▄▀╒▌         ▌  #\e[00m"
-echo -e "\e[00;36m#    █      ▐▌     ██   ▄▄╓   ▄   ─╜▐▀▀▀═▄     ┘         ▐█    ╒█▀ █         ▐▌  #\e[00m"
-echo -e "\e[00;36m#    ▀▄     ▐▌     █ ╒██▀┌╘█  ═ ▄▀▀▀└└╘▀▀╤▄   ╒   ╓▄┌     ▀▌  ▄▀   ▌         █╕  #\e[00m"
-echo -e "\e[00;36m#     ▀▄     ▌    ▐▀ ████▄▄█▌ ▄▀          ╒▀  ═ ▄▀─ ▀██─   █ ▄▀   ▄┐        ▐▌   #\e[00m"
-echo -e "\e[00;36m#      ▀█▀╤▄┌▐    █  ███████▌▐▌             █▐ ███▄▄████   ██▀    ▌        ╒█    #\e[00m"
-echo -e "\e[00;36m#        ▀█▄╘▀▀   ▌  ▀██████▌▀█▄            ▄▌██████████   █▀    █        ▄▀     #\e[00m"
-echo -e "\e[00;36m#          ▀▀▄▄╜ ▄▌▄╗ ▀████▀▀ ▀█          ██▀▐█████████▀   █    ▀   █▀▀▄▄█▀      #\e[00m"
-echo -e "\e[00;36m#             ╙▀█▄█▄▌═┌  ┌═└   ╘▀▄      ▄█▀╘ ▄▀▀█████▀─  ╒▄▌  ▄▀    ▐▌           #\e[00m"
-echo -e "\e[00;36m#               █▀  ▀▌▀▄▄▄▄▄┌┌┌┌  ╙▀▌╙╙▀╘    ╕▄▀▀▀▀▄┌┌ ─└▐╒█▀▀╪╗▄▄▄▄█▀           #\e[00m"
-echo -e "\e[00;36m#               █═  ╙ ▐▀▀▄▄ ┌╒╒╓▄╤▐╘╘╙▀▀▀▀▀█▀▀   ┌  ▄▄▄╧▀▀▀██▄▄▀▀▀▀╒             #\e[00m"
-echo -e "\e[00;36m#              ┌▄█▄       ▐█▀▀╙─ ├╘▀▀▀▀▀╙└  ╙▀▀▀▀▀▀▀▄▄▀▀  ╓█▌                    #\e[00m"
-echo -e "\e[00;36m#            ▄█▀─  ▀╕      █ ╙               └▀█▀▀▐▀╜     ▐█▄                    #\e[00m"
-echo -e "\e[00;36m#           ▐▀            ▐▀ ▄     ▄▀        ┘▀   █      ▄▀└▐▀█╕                 #\e[00m"
-echo -e "\e[00;36m#           █            ╒▌  ╘   ╥▀▄╓       ┘     ▀    ╙╙      ▀▄                #\e[00m"
-echo -e "\e[00;36m#           █           ╒▀   ┌▌  ──██       ╘      █            █▄               #\e[00m"
-echo -e "\e[00;36m#           ▀▄         ▄▀▄▄▀▀▀▐▌   ╙▀▐       ╙  ▐╙▀▀█           █─               #\e[00m"
-echo -e "\e[00;36m#            ▐▀▄▄▄▄▄▄▄█▀▀╜     ▀▌    ▐         ╙╕    ▀▄╒       █▀                #\e[00m"
-echo -e "\e[00;36m##################################################################################\e[00m"
-echo -e "\n"
 
 fortune -a
 
