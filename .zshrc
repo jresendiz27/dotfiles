@@ -100,9 +100,9 @@ alias choiceVPNConnect='openconnect --user=juan.resendiz phcvpn.choicehotels.com
 export MAVEN_KEYSTORE="~/.maven_keystore"
 export MAVEN_OPTS="-Xms512m -Djavax.net.ssl.trustStore=%MAVEN_KEYSTORE% -Djsse.enableSNIExtension=false"
 
-#Personal Alias
-
+#Personal Alias and variables
 alias startPostgressServer='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'
 
 # Personal stuff
 echo -e "\e[00;36m##################################################################################\e[00m"
@@ -124,5 +124,3 @@ export NVM_DIR="`echo $HOME`/.nvm"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="`echo $HOME`/.sdkman"
 [[ -s "`echo $HOME`/.sdkman/bin/sdkman-init.sh" ]] && source "`echo $HOME`/.sdkman/bin/sdkman-init.sh"
-
-export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'
