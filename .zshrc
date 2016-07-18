@@ -56,7 +56,7 @@ ZSH_THEME="miloshadzic" #avit, gnzh(ruby) gallifrey
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git setopt share_history vagrant tmux tmuxinator postgres)
+plugins=(git setopt share_history vagrant tmux tmuxinator postgres rvm)
 
 export GOPATH="`echo $HOME`.go"
 # User configuration
@@ -97,12 +97,12 @@ clear
 
 # Skytouch
 
-alias choiceVPNConnect='openconnect --user=juan.resendiz phcvpn.choicehotels.com'
+alias choiceVPNConnect='sudo openconnect --user=juan.resendiz phcvpn.choicehotels.com'
 export MAVEN_KEYSTORE="~/.maven_keystore"
 export MAVEN_OPTS="-Xms512m -Djavax.net.ssl.trustStore=%MAVEN_KEYSTORE% -Djsse.enableSNIExtension=false"
 
 #Personal Alias and variables
-
+alias lso="ls -alG | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
 export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'
 
 # Personal stuff
