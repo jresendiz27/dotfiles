@@ -97,7 +97,9 @@ clear
 
 # Skytouch
 
-alias choiceVPNConnect='sudo openconnect --user=juan.resendiz phcvpn.choicehotels.com'
+alias choiceVPNConnect1='sudo openconnect --verbose --no-cert-check --user=juan.resendiz phcvpn.choicehotels.com'
+alias choiceVPNConnect2='sudo openconnect --verbose --no-cert-check --user=juan.resendiz phxvpn.choicehotels.com'
+alias choiceVPNConnect3='sudo openconnect --verbose --no-cert-check --user=juan.resendiz sspvpn.choicehotels.com'
 export MAVEN_KEYSTORE="~/.maven_keystore"
 export MAVEN_OPTS="-Xms512m -Djavax.net.ssl.trustStore=%MAVEN_KEYSTORE% -Djsse.enableSNIExtension=false"
 
