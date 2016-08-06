@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=`echo $HOME`/.oh-my-zsh
-
+export DOTFILES_HOME=`echo $HOME`/.dotfiles
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=1000000                   # big big history
 export HISTFILESIZE=1000000               # big big history
@@ -93,30 +93,33 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-clear
-
+# colors
+RED=$'\e[00;31m';
+BLUE=$'\e[00;36m';
+ENDCOLOR=$'\e[00m';
+# useful functions
+if [ -f "${DOTFILES_HOME}/util.sh" ]; then
+    source "${DOTFILES_HOME}/util.sh"
+else
+    print "404: ${DOTFILES_HOME}/util.sh not found"
+fi
 # Skytouch
-
 alias choiceVPNConnect1='sudo openconnect --verbose --no-cert-check --user=juan.resendiz phcvpn.choicehotels.com'
 alias choiceVPNConnect2='sudo openconnect --verbose --no-cert-check --user=juan.resendiz phxvpn.choicehotels.com'
 alias choiceVPNConnect3='sudo openconnect --verbose --no-cert-check --user=juan.resendiz sspvpn.choicehotels.com'
 export MAVEN_KEYSTORE="~/.maven_keystore"
 export MAVEN_OPTS="-Xms512m -Djavax.net.ssl.trustStore=%MAVEN_KEYSTORE% -Djsse.enableSNIExtension=false"
 
-#Personal Alias and variables
-alias lso="ls -alG | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
-export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'
-
 # Personal stuff
-echo -e "\e[00;36m##################################################################################\e[00m"
-echo -e "\e[00;36m#                                                                                #\e[00m"
-echo -e "\e[00;36m#           _      __    __                     ___      __       __             #\e[00m"
-echo -e "\e[00;36m#          | | /| / /__ / /______  __ _  ___   / _ )___ / /____  / /             #\e[00m"
-echo -e "\e[00;36m#          | |/ |/ / -_) / __/ _ \/  ' \/ -_) / _  / -_) __/ _ \/_/              #\e[00m"
-echo -e "\e[00;36m#          |__/|__/\__/_/\__/\___/_/_/_/\__/ /____/\__/\__/\___(_)               #\e[00m"
-echo -e "\e[00;36m#                                                                                #\e[00m"
-echo -e "\e[00;36m#                                                                                #\e[00m"
-echo -e "\e[00;36m##################################################################################\e[00m"
+echo -e "${BLUE}##################################################################################${ENDCOLOR}"
+echo -e "${BLUE}#                                                                                #${ENDCOLOR}"
+echo -e "${BLUE}#           _      __    __                     ___      __       __             #${ENDCOLOR}"
+echo -e "${BLUE}#          | | /| / /__ / /______  __ _  ___   / _ )___ / /____  / /             #${ENDCOLOR}"
+echo -e "${BLUE}#          | |/ |/ / -_) / __/ _ \/  ' \/ -_) / _  / -_) __/ _ \/_/              #${ENDCOLOR}"
+echo -e "${BLUE}#          |__/|__/\__/_/\__/\___/_/_/_/\__/ /____/\__/\__/\___(_)               #${ENDCOLOR}"
+echo -e "${BLUE}#                                                                                #${ENDCOLOR}"
+echo -e "${BLUE}#                                                                                #${ENDCOLOR}"
+echo -e "${BLUE}##################################################################################${ENDCOLOR}"
 echo -e ""
 echo -e ""
 fortune -a
