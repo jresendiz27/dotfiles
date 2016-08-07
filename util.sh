@@ -1,13 +1,15 @@
 # Utilities bash, some useful aliases and functions
 # Function for retrieving system information based on unix systems
 function systemInformation()  { # Get current host related info.
+    echo -e "${RED} - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${ENDCOLOR}"
     echo -e "\n${RED}You are logged on ${ENDCOLOR} $HOST "
     echo -e "\n${RED}Additionnal information:$NC ${ENDCOLOR}" ; uname -spr
     echo -e "\n${RED}Uptime :$NC ${ENDCOLOR}" ; uptime -p
-    echo -e "\n${RED}Memory stats :$NC ${ENDCOLOR}" ; free -h
-    echo -e "\n${RED}HDD/SDD stats :$NC ${ENDCOLOR}" ; df -hH | grep "/dev/sd"
+    echo -e "\n${RED}Memory stats :$NC ${ENDCOLOR}" ; free -ht
+    echo -e "\n${RED}HDD/SDD stats :$NC ${ENDCOLOR}" ; df -hHT -x devtmpfs -x tmpfs
+    echo -e "\n${RED}Model name :$NC ${ENDCOLOR}"; cat /proc/cpuinfo | grep -E -m 1 "model name" | cut -d':' -f2
     echo -e "\n${RED}# of Cores :$NC ${ENDCOLOR}" ; nproc
-    echo -e "\n${RED} Model name :$NC ${ENDCOLOR}"; cat /proc/cpuinfo | grep -E -m 1 "model name" | cut -d':' -f2
+    echo -e "\n${RED} - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${ENDCOLOR}"
     #echo -e "\n${RED}Users logged on:$NC " ; w -h
     #echo -e "\n${RED}Current date :$NC " ; date
     #my_ip 2>&- ;
