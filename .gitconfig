@@ -8,3 +8,4 @@
 	email = jresendiz@nearsoft.com
 [core]
 	autocrlf = input
+	editor = nano
