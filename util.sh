@@ -23,6 +23,7 @@ alias lso="ls -alG | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*
 alias untarz='tar -xzf'
 alias untarj='tar -xjf'
 alias changeKeyboardMap="xmodmap ${DOTFILES_HOME}/.Xmodmap"
+alias linkNodeToBin='sudo ln -sf $(which node) /usr/bin/node'
 # JAVA STUFF
 export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'
 # Required imports for some programs
