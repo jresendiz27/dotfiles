@@ -1,6 +1,5 @@
 name: NSDev
 root: ~/Documents/Nearsoft
-#pre: cd ~/Documents/Nearsoft/Skytouch/hos-workstation && vagrant up pmapp01 && vagrant up web01 >> /dev/null
 
 startup_window: PM_servers
 
@@ -9,9 +8,9 @@ windows:
       root: ~/Documents/Nearsoft/Skytouch/CincoMonitos/hos-workstation
       layout: tiled
       panes:
-        - vagrant ssh pmapp01
-        - vagrant ssh web01
-        - vagrant ssh pmapp01
+        - 
+        - 
+        - 
         -
   - PM_Git:
       root: ~/Documents/Nearsoft/Skytouch/CincoMonitos/hos-workstation/choiceadvantage
@@ -21,10 +20,9 @@ windows:
         -
         - git status
   - Labs:
-      pre: startpost
       root: ~/Documents/Nearsoft/Labs/Happinessometer
       layout: tiled
       panes:
-        - psql -w postgres
+        - 
         - cd happinessometer-elixir
         - cd happinessometer-web

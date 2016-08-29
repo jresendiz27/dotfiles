@@ -28,5 +28,6 @@ alias linkNodeToBin='sudo ln -sf $(which node) /usr/bin/node'
 export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'
 # Required imports for some programs
 export IBUS_ENABLE_SYNC_MODE=1
+export XMODIFIERS=""
 # Clear screen
 clear
