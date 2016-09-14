@@ -25,6 +25,7 @@ alias untarj='tar -xjf'
 alias changeKeyboardMap="xmodmap ${DOTFILES_HOME}/.Xmodmap"
 alias linkNodeToBin='sudo ln -sf $(which node) /usr/bin/node'
 alias gitPrettyLog='git log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)"'
+alias gitBranchParent="git show-branch | grep '*' | grep -v '$(git rev-parse --abbrev-ref HEAD)' | head -n1 | sed 's/.*\[\(.*\)\].*/\1/' | sed 's/[\^~].*//'"
 # JAVA STUFF
 export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'
 # Required imports for some programs
