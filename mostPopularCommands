@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
-def mostRepeated = [:]
-new File("~/.zsh_history").eachLine { line ->      
+Map<String, Integer> mostRepeated = [:]
+new File("${System.getenv()['HOME']}/.zsh_history").eachLine { line ->      
     firstLine = line.split(";")
     if(firstLine.size() > 1) {
         command = firstLine[1].split(" ")[0]
@@ -12,7 +12,10 @@ new File("~/.zsh_history").eachLine { line ->
     }
 }
 int count = 0
-int limit = args[0] ? args[0] as int : 100
+int limit = args.size() > 0 ? args[0] as int : 5
+println """
+*** The most used commands are: ***
+"""
 mostRepeated.sort { -it.value }.each {
     if(count <= limit) {
         println "$it.key --> $it.value"
