@@ -122,7 +122,7 @@ echo -e "${BLUE}#                                                               
 echo -e "${BLUE}##################################################################################${ENDCOLOR}"
 echo -e ""
 echo -e ""
-fortune -a | pv -qL 27
+fortune -na
 echo -e ""
 echo -e ""
 export NVM_DIR="`echo $HOME`/.nvm"
