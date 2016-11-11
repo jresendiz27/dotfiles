@@ -30,6 +30,8 @@ alias gitRecentBranches='for k in `git branch | perl -pe s/^..//`; do echo -e `g
 alias mostUsedCommands="history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head"
 alias ls='ls --color=auto'
 alias ideaIBus='ibus-daemon -rd'
+alias useFirefoxATF='sudo ln -sfnv /home/jresendiz/Software/firefox/firefox /usr/bin/firefox'
+alias restoreFirefox='sudo ln -sfnv /usr/lib/firefox/firefox.sh /usr/bin/firefox'
 ## JAVA OPTS
 #alias exportJavaOpts="export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'"
 # Required imports for some programs
