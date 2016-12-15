@@ -31,6 +31,8 @@ alias mostUsedCommands="history | awk '{a[$2]++}END{for(i in a){print a[i] " " i
 alias runPM='java -Dorg.apache.el.parser.SKIP_IDENTIFIER_CHECK=true -Dorg.apache.jasper.compiler.Parser.STRICT_WHITESPACE=false  -Dusertransaction.class="com.skytouch.pm.config.SpringManualTransactionManager" -Dspring.config.location=$HOME/.conf-files/application-custom.yml -jar -Xdebug -Xrunjdwp:server=y,transport=dt_socket,suspend=n,address=3111 hos-pm/target/hos-pm-8.7.0.0-SNAPSHOT.war'
 # alias ls='ls --color=auto'
 alias ideaIBus='ibus-daemon -rd'
+alias useFirefoxATF='sudo ln -sfnv /home/jresendiz/Software/firefox/firefox /usr/bin/firefox'
+alias restoreFirefox='sudo ln -sfnv /usr/lib/firefox/firefox.sh /usr/bin/firefox'
 ## JAVA OPTS
 #alias exportJavaOpts="export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'"
 # Required imports for some programs
