@@ -4,7 +4,7 @@
 #	name = Juan Resendiz
 #	email = jresendiz@NSL-JRESENDIZs-MacBook-Pro.local
 [user]
-	name = Juan Alberto Resendiz Arteaga
+	name = Juan Resendiz
 	email = jresendiz@nearsoft.com
 [core]
 	autocrlf = input
@@ -12,3 +12,5 @@
 [alias]
 	pretty-log = log --graph --abbrev-commit --decorate --format=format:\"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(magenta)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)\"
 	recent-branches = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+	remove-merged-to-master="!git branch --merged | grep  --invert-match \"*\" | grep -v master | grep -v production | grep -v integration | xargs -n 1 git branch -d"
+# | grep -v '\*'
