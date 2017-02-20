@@ -11,3 +11,4 @@
 	editor = nano
 [alias]
 	pretty-log = log --graph --abbrev-commit --decorate --format=format:\"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(magenta)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)\"
+	recent-branches = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
