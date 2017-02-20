@@ -56,9 +56,9 @@ ZSH_THEME="miloshadzic" #avit, gnzh(ruby) gallifrey
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git setopt share_history vagrant tmux tmuxinator postgres rvm)
+plugins=(git setopt share_history vagrant tmux tmuxinator postgres)
 
-export GOPATH="`echo $HOME`.go"
+# export GOPATH="`echo $HOME`.go"
 # User configuration
 
 # export PATH="/Users/jresendiz/.sdkman/candidates/groovy/current/bin:/Users/jresendiz/.sdkman/candidates/grails/current/bin:/Users/jresendiz/.sdkman/candidates/gradle/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
