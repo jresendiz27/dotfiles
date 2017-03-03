@@ -12,7 +12,7 @@ export EDITOR='atom'
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="miloshadzic" #avit, gnzh(ruby) gallifrey
+ZSH_THEME="jresendiz" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty_256, wezm
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -56,7 +56,7 @@ ZSH_THEME="miloshadzic" #avit, gnzh(ruby) gallifrey
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git setopt share_history vagrant tmux tmuxinator postgres)
+plugins=(git setopt share_history tmux postgres)
 
 # export GOPATH="`echo $HOME`.go"
 # User configuration
