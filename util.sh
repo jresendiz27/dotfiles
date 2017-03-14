@@ -38,5 +38,6 @@ alias restoreFirefox='sudo ln -sfnv /usr/lib/firefox/firefox.sh /usr/bin/firefox
 # Required imports for some programs
 export IBUS_ENABLE_SYNC_MODE=1
 export XMODIFIERS=""
+export MAVEN_OPTS="-Xms512m"
 # Clear screen
 clear
