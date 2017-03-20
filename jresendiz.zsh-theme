@@ -7,7 +7,7 @@
 # Based on the original theme ys on oh-my-zsh
 
 # VCS
-YS_VCS_PROMPT_PREFIX1=" %{$fg[white]%}on%{$reset_color%} "
+YS_VCS_PROMPT_PREFIX1=" %{$fg[gray]%}on%{$reset_color%} "
 YS_VCS_PROMPT_PREFIX2=":%{$fg[cyan]%}"
 YS_VCS_PROMPT_SUFFIX="%{$reset_color%}"
 YS_VCS_PROMPT_DIRTY=" %{$fg[red]%}X"
@@ -35,9 +35,9 @@ local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %(#,%{$bg[black]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \
-%{$fg[white]%}in \
+%{$fg[gray]%}in \
 %{$terminfo[bold]$fg[black]%}%2~%{$reset_color%}\
 ${git_info}\
  \
-%{$fg[white]%}[%*] $exit_code
+%{$fg[gray]%}[%*] $exit_code
 %{$terminfo[bold]$fg[cyan]%}$ %{$reset_color%}"
