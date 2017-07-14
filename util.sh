@@ -33,6 +33,7 @@ alias sshBlickDev1='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@ec2-54-245-6-71.u
 alias sshBlickDev2='ssh -i ~/.ssh/amazon_keys/cierralo-dev.pem ubuntu@54.214.137.7 -o ServerAliveInterval=60'
 alias sshBlickCierraloDev='ssh -o ServerAliveInterval=60 -i ~/.ssh/amazon_keys/cierralo-dev.pem ubuntu@54.214.137.7'
 alias sshBlickJenkins='ssh -o ServerAliveInterval=60 -i ~/.ssh/amazon_keys/jenkins-blick.pem ubuntu@52.32.244.171'
+alias sshBlickKermaDev='ssh -i ~/.ssh/amazon_keys/kerma-partners.pem ubuntu@34.210.102.6 -o ServerAliveInterval=60'
 # alias ls='ls --color=auto'
 alias ideaIBus='ibus-daemon -rd'
 # alias useFirefoxATF='sudo ln -sfnv /home/jresendiz/Software/firefox/firefox /usr/bin/firefox'
