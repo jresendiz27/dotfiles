@@ -24,6 +24,7 @@ alias untarz='tar -xzf'
 alias untarj='tar -xjf'
 alias changeKeyboardMap="xmodmap ${DOTFILES_HOME}/.Xmodmap"
 alias linkNodeToBin='sudo ln -sf $(which node) /usr/bin/node'
+alias linkDownloadsDirectory='ln -s /media/Documents/jresendiz/Downloads/ ~/'
 # alias gitPrettyLog='git log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(magenta)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)"'
 alias gitBranchParent="git show-branch | grep '*' | grep -v '$(git rev-parse --abbrev-ref HEAD)' | head -n1 | sed 's/.*\[\(.*\)\].*/\1/' | sed 's/[\^~].*//'"
 alias gitRecentBranches='for k in `git branch | perl -pe s/^..//`; do echo -e `git show --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k -- | head -n 1`\\t$k; done | sort -r'
