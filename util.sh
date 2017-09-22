@@ -35,6 +35,7 @@ alias sshBlickDev2='ssh -i ~/.ssh/amazon_keys/cierralo-dev.pem ubuntu@54.214.137
 alias sshBlickCierraloDev='ssh -o ServerAliveInterval=60 -i ~/.ssh/amazon_keys/cierralo-dev.pem ubuntu@54.214.137.7'
 alias sshBlickJenkins='ssh -o ServerAliveInterval=60 -i ~/.ssh/amazon_keys/jenkins-blick.pem ubuntu@52.32.244.171'
 alias sshBlickKermaDev='ssh -i ~/.ssh/amazon_keys/kerma-partners.pem ubuntu@34.210.102.6 -o ServerAliveInterval=60'
+alias loadAnaconda='export PATH=/home/jresendiz/anaconda3/bin:$PATH'
 # alias ls='ls --color=auto'
 alias ideaIBus='ibus-daemon -rd'
 # alias useFirefoxATF='sudo ln -sfnv /home/jresendiz/Software/firefox/firefox /usr/bin/firefox'
