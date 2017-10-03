@@ -30,11 +30,15 @@ alias gitBranchParent="git show-branch | grep '*' | grep -v '$(git rev-parse --a
 alias gitRecentBranches='for k in `git branch | perl -pe s/^..//`; do echo -e `git show --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k -- | head -n 1`\\t$k; done | sort -r'
 alias mostUsedCommands=$'history | awk \'{a[$2]++}END{for(i in a){print a[i] " " i}}\' | sort -rn | head'
 alias removeQueuesFromRabbit='rabbitmqadmin -f tsv -q list queues name | while read queue; do rabbitmqadmin -q delete queue name=${queue}; done;'
+
 alias sshBlickProd1='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.245.6.71 -o ServerAliveInterval=60'
 alias sshBlickProd2='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.202.118.163 -o ServerAliveInterval=60'
+alias sshBlickWPMultiSiteI='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.186.20.28 -o ServerAliveInterval=60'
+alias sshBlickDatabasesI='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.186.17.70 -o ServerAliveInterval=60'
 alias sshBlickCierraloDev='ssh -o ServerAliveInterval=60 -i ~/.ssh/amazon_keys/cierralo-dev.pem ubuntu@54.214.137.7'
 alias sshBlickJenkins='ssh -o ServerAliveInterval=60 -i ~/.ssh/amazon_keys/jenkins-blick.pem ubuntu@52.32.244.171'
 alias sshBlickKermaDev='ssh -i ~/.ssh/amazon_keys/kerma-partners.pem ubuntu@34.210.102.6 -o ServerAliveInterval=60'
+
 alias loadAnaconda='export PATH=/home/jresendiz/anaconda3/bin:$PATH'
 # alias ls='ls --color=auto'
 alias ideaIBus='ibus-daemon -rd'
