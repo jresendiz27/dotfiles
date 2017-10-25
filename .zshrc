@@ -58,7 +58,10 @@ ZSH_THEME="jresendiz" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git setopt share_history tmux postgres)
 
-# export GOPATH="`echo $HOME`.go"
+export GOPATH="`echo $HOME`/Software/go"
+export GOROOT="/home/jresendiz/Software/go"
+export PATH=$PATH:$GOROOT/bin
+
 # User configuration
 
 # export PATH="/Users/jresendiz/.sdkman/candidates/groovy/current/bin:/Users/jresendiz/.sdkman/candidates/grails/current/bin:/Users/jresendiz/.sdkman/candidates/gradle/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
