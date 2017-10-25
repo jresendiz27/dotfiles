@@ -6,7 +6,7 @@ export HISTSIZE=1000000                   # big big history
 export HISTFILESIZE=1000000               # big big history
 #shopt -s histappend
 
-export EDITOR='atom'
+export EDITOR='subl'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -58,7 +58,7 @@ ZSH_THEME="jresendiz" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git setopt share_history tmux postgres)
 
-export GOPATH="`echo $HOME`/Software/go"
+# export GOPATH="`echo $HOME`/Software/go"
 export GOROOT="/home/jresendiz/Software/go"
 export PATH=$PATH:$GOROOT/bin
 
