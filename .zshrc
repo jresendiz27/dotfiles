@@ -1,3 +1,7 @@
+# Loading bash information if exists
+if [ -f "$HOME/.bash_profile" ]; then
+    source "$HOME/.bash_profile";
+fi
 # Path to your oh-my-zsh installation.
 export ZSH=`echo $HOME`/.oh-my-zsh
 export DOTFILES_HOME=`echo $HOME`/.dotfiles
@@ -56,7 +60,7 @@ ZSH_THEME="jresendiz" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git setopt share_history tmux postgres)
+plugins=(git setopt share_history tmux)
 
 # export GOPATH="`echo $HOME`/Software/go"
 export GOROOT="/home/jresendiz/Software/go"
@@ -107,6 +111,14 @@ else
     print "404: ${DOTFILES_HOME}/util.sh not found"
 fi
 
+if [ -d "$HOME/.rbenv/bin" ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH";
+fi
+
+# if [ -f "$HOME/brew/bin/virtualenvwrapper.sh" ]; then
+#     source "$HOME/brew/bin/virtualenvwrapper.sh";
+# fi
+
 # Personal stuff
 echo -e "${BLUE}##################################################################################${ENDCOLOR}"
 echo -e "${BLUE}#                                                                                #${ENDCOLOR}"
@@ -124,7 +136,6 @@ echo -e ""
 echo -e ""
 export NVM_DIR="`echo $HOME`/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-#export PATH="$HOME/.jenv/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="`echo $HOME`/.sdkman"
