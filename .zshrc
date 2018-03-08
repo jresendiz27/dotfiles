@@ -10,7 +10,7 @@ export HISTSIZE=1000000                   # big big history
 export HISTFILESIZE=1000000               # big big history
 #shopt -s histappend
 
-export EDITOR='subl'
+export EDITOR='nano'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -60,11 +60,11 @@ ZSH_THEME="jresendiz" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git setopt share_history tmux)
+plugins=(git setopt share_history tmux ruby)
 
 # export GOPATH="`echo $HOME`/Software/go"
-export GOROOT="/home/jresendiz/Software/go"
-export PATH=$PATH:$GOROOT/bin
+# export GOROOT="/home/jresendiz/Software/go"
+# export PATH=$PATH:$GOROOT/bin
 
 # User configuration
 
@@ -111,8 +111,14 @@ else
     print "404: ${DOTFILES_HOME}/util.sh not found"
 fi
 
-if [ -d "$HOME/.rbenv/bin" ]; then
-    export PATH="$HOME/.rbenv/bin:$PATH";
+if [ -f "${DOTFILES_HOME}/.env.sh" ]; then
+    source "${DOTFILES_HOME}/.env.sh"
+else
+    print "404: ${DOTFILES_HOME}/.env.sh not found"
+fi
+
+if [ -d "$HOME/.rbenv/shims" ]; then
+    export PATH="$HOME/.rbenv/shims:$PATH";
 fi
 
 # if [ -f "$HOME/brew/bin/virtualenvwrapper.sh" ]; then
@@ -141,6 +147,11 @@ export NVM_DIR="`echo $HOME`/.nvm"
 export SDKMAN_DIR="`echo $HOME`/.sdkman"
 [[ -s "`echo $HOME`/.sdkman/bin/sdkman-init.sh" ]] && source "`echo $HOME`/.sdkman/bin/sdkman-init.sh"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# ### Added by the Heroku Toolbelt
+# export PATH="/usr/local/heroku/bin:$PATH"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# export PATH='/usr/local/sbin:$PATH'
+# export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+# export PATH="/Users/jresendiz/.rbenv/versions/2.3.0/bin:$PATH"
