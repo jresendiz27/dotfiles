@@ -121,6 +121,15 @@ if [ -d "$HOME/.rbenv/shims" ]; then
     export PATH="$HOME/.rbenv/shims:$PATH";
 fi
 
+if [ -d "$HOME/.rbenv/bin" ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH";
+    eval "$(rbenv init -)"
+fi
+
+if [ -d "$HOME/brew/bin" ]; then
+    export PATH="$HOME/brew/bin:$PATH"
+fi
+
 # if [ -f "$HOME/brew/bin/virtualenvwrapper.sh" ]; then
 #     source "$HOME/brew/bin/virtualenvwrapper.sh";
 # fi
