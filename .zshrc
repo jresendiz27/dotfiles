@@ -156,11 +156,11 @@ export NVM_DIR="`echo $HOME`/.nvm"
 export SDKMAN_DIR="`echo $HOME`/.sdkman"
 [[ -s "`echo $HOME`/.sdkman/bin/sdkman-init.sh" ]] && source "`echo $HOME`/.sdkman/bin/sdkman-init.sh"
 
-# ### Added by the Heroku Toolbelt
-# export PATH="/usr/local/heroku/bin:$PATH"
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# export PATH='/usr/local/sbin:$PATH'
-# export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
-# export PATH="/Users/jresendiz/.rbenv/versions/2.3.0/bin:$PATH"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# added by travis gem
+[ -f /home/jresendiz/.travis/travis.sh ] && source /home/jresendiz/.travis/travis.sh
