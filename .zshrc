@@ -107,14 +107,10 @@ ENDCOLOR=$'\e[00m';
 # useful functions
 if [ -f "${DOTFILES_HOME}/util.sh" ]; then
     source "${DOTFILES_HOME}/util.sh"
-else
-    print "404: ${DOTFILES_HOME}/util.sh not found"
 fi
 
 if [ -f "${DOTFILES_HOME}/.env.sh" ]; then
     source "${DOTFILES_HOME}/.env.sh"
-else
-    print "404: ${DOTFILES_HOME}/.env.sh not found"
 fi
 
 if [ -d "$HOME/.rbenv/shims" ]; then
