@@ -7,7 +7,6 @@
 	name = Juan Resendiz
 	email = jresendiz27@gmail.com
 [core]
-	autocrlf = true
 	editor = nano
 [alias]
 	pretty-log = log --graph --abbrev-commit --decorate --format=format:\"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(magenta)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)\"
