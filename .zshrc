@@ -145,8 +145,9 @@ echo -e ""
 fortune -na
 echo -e ""
 echo -e ""
-export NVM_DIR="`echo $HOME`/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="`echo $HOME`/.sdkman"
@@ -159,4 +160,4 @@ export PATH="/usr/local/heroku/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # added by travis gem
-[ -f /home/jresendiz/.travis/travis.sh ] && source /home/jresendiz/.travis/travis.sh
+[ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
