@@ -1,10 +1,10 @@
 # This is Git's per-user configuration file.
 [user]
+	name = Juan Reséndiz
 # Please adapt and uncomment the following lines:
 #	name = Juan Resendiz
 #	email = jresendiz@NSL-JRESENDIZs-MacBook-Pro.local
 [user]
-	name = Juan Resendiz
 	email = jresendiz27@gmail.com
 [core]
 	editor = nano
