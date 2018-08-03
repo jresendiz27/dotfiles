@@ -1,5 +1,10 @@
 # Utilities bash, some useful aliases and functions
 # Function for retrieving system information based on unix systems
+
+function random-string() {
+    perl -pe 'binmode(STDIN, ":bytes"); tr/A-Za-z0-9_\!\@\#\$\%\^\&\*\(\)-+=//dc;' < /dev/urandom | head -c $1; echo
+}
+
 function systemInformation()  { # Get current host related info.
     echo -e "${RED} - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${ENDCOLOR}"
     echo -e "\n${RED}You are logged on ${ENDCOLOR} $HOST "
@@ -25,13 +30,14 @@ alias untarj='tar -xjf'
 alias changeKeyboardMap="xmodmap ${DOTFILES_HOME}/.Xmodmap"
 alias linkNodeToBin='sudo ln -sf $(which node) /usr/bin/node'
 alias linkDownloadsDirectory='ln -s /media/Documents/jresendiz/Downloads/ ~/'
-# alias gitPrettyLog='git log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(magenta)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)"'
 alias gitBranchParent="git show-branch | grep '*' | grep -v '$(git rev-parse --abbrev-ref HEAD)' | head -n1 | sed 's/.*\[\(.*\)\].*/\1/' | sed 's/[\^~].*//'"
 alias gitRecentBranches='for k in `git branch | perl -pe s/^..//`; do echo -e `git show --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k -- | head -n 1`\\t$k; done | sort -r'
 alias mostUsedCommands=$'history | awk \'{a[$2]++}END{for(i in a){print a[i] " " i}}\' | sort -rn | head'
 alias removeQueuesFromRabbit='rabbitmqadmin -f tsv -q list queues name | while read queue; do rabbitmqadmin -q delete queue name=${queue}; done;'
-alias runMySQL56='docker run -v $HOME/.volumes/mysql:/var/lib/mysql -p 3307:3306 -e MYSQL_ROOT_PASSWORD=n0m3l0s3 -e MYSQL_ROOT_HOST=% mysql:5.6.26'
-alias runPostgres9512='docker run -v $HOME/.volumes/postgres9.5.12:/var/lib/postgresql/data  -e POSTGRES_PASSWORD=n0m3l0s3 -e POSTGRES_DB=collections -e POSTGRES_USER=jresendiz -p 5433:5432 postgres:9.5.12'
+
+alias runMySQL_5626='docker run -v $HOME/.volumes/_mysql:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=n0m3l0s3 -e MYSQL_ROOT_HOST=% mysql:5.6.26'
+alias runPostgres_9512='docker run  -v $HOME/.volumes/postgres9.5.12:/var/lib/postgresql/data -e POSTGRES_PASSWORD=kueski -e POSTGRES_USER=postgres -p 5432:5432 postgres:9.5.12'
+
 alias sshBlickProd1='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.245.6.71 -o ServerAliveInterval=60'
 alias sshBlickProd2='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.202.118.163 -o ServerAliveInterval=60'
 alias sshBlickWPMultiSiteI='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.186.20.28 -o ServerAliveInterval=60'
