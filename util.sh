@@ -23,6 +23,14 @@ function systemInformation()  { # Get current host related info.
     #echo -e "\n${RED}Open connections :$NC "; netstat -pan --inet;
     #echo
 }
+# Tuning commands
+alias mv='mv -v'
+alias rm='rm -i -v'
+alias cp='cp -v'
+alias please='sudo'
+alias fuck='sudo'
+alias clean='clear'
+
 #Personal Alias and variables
 alias lso="ls -alG | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
 alias untarz='tar -xzf'
