@@ -8,6 +8,7 @@ export DOTFILES_HOME=`echo $HOME`/.dotfiles
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=1000000                   # big big history
 export HISTFILESIZE=1000000               # big big history
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 #shopt -s histappend
 
 export EDITOR='nano'
