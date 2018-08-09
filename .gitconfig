@@ -13,4 +13,5 @@
 	pretty-log = log --graph --abbrev-commit --decorate --format=format:\"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(magenta)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)\"
 	recent-branches = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
 	remove-merged-to-master="!git branch --merged | grep  --invert-match \"*\" | grep -v master | grep -v production | grep -v integration | xargs -n 1 git branch -d"
+        ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 # | grep -v '\*'

@@ -1,5 +1,4 @@
 # Utilities bash, some useful aliases and functions
-# Function for retrieving system information based on unix systems
 
 function random-string() {
     perl -pe 'binmode(STDIN, ":bytes"); tr/A-Za-z0-9_\!\@\#\$\%\^\&\*\(\)-+=//dc;' < /dev/urandom | head -c $1; echo
@@ -23,6 +22,9 @@ function systemInformation()  { # Get current host related info.
     #echo -e "\n${RED}Open connections :$NC "; netstat -pan --inet;
     #echo
 }
+
+mkcd() { mkdir -p $1; cd $1 }
+
 # Tuning commands
 alias mv='mv -v'
 alias rm='rm -i -v'
@@ -34,6 +36,10 @@ alias lso="ls -alG | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*
 alias untarz='tar -xzf'
 alias targz='tar czf'
 alias untarj='tar -xjf'
+alias hs='history | grep'
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias back='cd "$OLDPWD"'
+alias ports='netstat -tulan -p TCP'
 
 # SSH related
 alias sshBlickProd1='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.245.6.71 -o ServerAliveInterval=60'
