@@ -4,6 +4,10 @@ function random-string() {
     perl -pe 'binmode(STDIN, ":bytes"); tr/A-Za-z0-9_\!\@\#\$\%\^\&\*\(\)-+=//dc;' < /dev/urandom | head -c $1; echo
 }
 
+function secure-string() {
+   openssl rand 1024 | openssl enc -base64 -A | head -c $1; echo
+}
+
 function systemInformation()  { # Get current host related info.
     echo -e "${RED} - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${ENDCOLOR}"
     echo -e "\n${RED}You are logged on ${ENDCOLOR} $HOST "
