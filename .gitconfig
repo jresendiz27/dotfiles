@@ -14,4 +14,5 @@
 	recent-branches = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
 	remove-merged-to-master="!git branch --merged | grep  --invert-match \"*\" | grep -v master | grep -v production | grep -v integration | xargs -n 1 git branch -d"
         ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-# | grep -v '\*'
+	list-alias = "!git config -l | grep alias | cut -c 7-"
+
