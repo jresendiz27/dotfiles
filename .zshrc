@@ -106,6 +106,10 @@ RED=$'\e[00;31m';
 BLUE=$'\e[00;36m';
 ENDCOLOR=$'\e[00m';
 # useful functions
+if [ -d "${DOTFILES_HOME}" ]; then
+  cd $DOTFILES_HOME && git pull origin master
+fi
+
 if [ -f "${DOTFILES_HOME}/util.sh" ]; then
     source "${DOTFILES_HOME}/util.sh"
 fi
