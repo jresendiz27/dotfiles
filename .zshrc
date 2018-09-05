@@ -107,7 +107,7 @@ BLUE=$'\e[00;36m';
 ENDCOLOR=$'\e[00m';
 # useful functions
 if [ -d "${DOTFILES_HOME}" ]; then
-  cd $DOTFILES_HOME && git pull origin master
+  cd $DOTFILES_HOME; (git pull origin master -q > /dev/null)&; cd -
 fi
 
 if [ -f "${DOTFILES_HOME}/util.sh" ]; then
