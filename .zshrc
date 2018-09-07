@@ -131,9 +131,9 @@ if [ -d "$HOME/brew/bin" ]; then
     export PATH="$HOME/brew/bin:$PATH"
 fi
 
-# if [ -f "$HOME/brew/bin/virtualenvwrapper.sh" ]; then
-#     source "$HOME/brew/bin/virtualenvwrapper.sh";
-# fi
+if [ -f "$HOME/brew/bin/virtualenvwrapper.sh" ]; then
+    source "$HOME/brew/bin/virtualenvwrapper.sh";
+fi
 
 # Personal stuff
 echo -e "${BLUE}##################################################################################${ENDCOLOR}"
