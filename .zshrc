@@ -11,7 +11,7 @@ export HISTFILESIZE=1000000               # big big history
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 #shopt -s histappend
 
-export EDITOR='nano'
+export EDITOR='vim'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -106,9 +106,6 @@ RED=$'\e[00;31m';
 BLUE=$'\e[00;36m';
 ENDCOLOR=$'\e[00m';
 # useful functions
-if [ -d "${DOTFILES_HOME}" ]; then
-  cd $DOTFILES_HOME; (git pull origin master -q > /dev/null)&; cd -
-fi
 
 if [ -f "${DOTFILES_HOME}/util.sh" ]; then
     source "${DOTFILES_HOME}/util.sh"
@@ -133,6 +130,10 @@ fi
 
 if [ -f "$HOME/brew/bin/virtualenvwrapper.sh" ]; then
     source "$HOME/brew/bin/virtualenvwrapper.sh";
+fi
+
+if [ -d "$HOME/Software/go" ]; then 
+    export PATH="$HOME/Software/go/bin:$PATH"  
 fi
 
 # Personal stuff
