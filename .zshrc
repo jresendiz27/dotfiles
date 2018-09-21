@@ -136,6 +136,10 @@ if [ -d "$HOME/Software/go" ]; then
     export PATH="$HOME/Software/go/bin:$PATH"  
 fi
 
+if [ -d "$HOME/Software/leiningen" ]; then
+    export PATH="$HOME/Software/leiningen:$PATH"
+fi
+
 # Personal stuff
 echo -e "${BLUE}##################################################################################${ENDCOLOR}"
 echo -e "${BLUE}#                                                                                #${ENDCOLOR}"
