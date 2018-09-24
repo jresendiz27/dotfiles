@@ -135,6 +135,10 @@ if [ -d "$HOME/Software/leiningen" ]; then
     export PATH="$HOME/Software/leiningen:$PATH"
 fi
 
+if [ -d "$HOME/Software/exercism" ]; then
+    export PATH="$HOME/Software/exercism:$PATH"
+  fi
+
 if [ -d "$HOME/.rbenv/bin" ]; then                                                                                                                                                                                                                                        
   export PATH="$HOME/.rbenv/bin:$PATH";                                                                                                                                                                                                                                 
   eval "$(rbenv init -)"                                                                                                                                                                                                                                                

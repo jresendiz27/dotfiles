@@ -1,11 +1,11 @@
 # Utilities bash, some useful aliases and functions
 
-function random-string() {
+function random-string () {
     perl -pe 'binmode(STDIN, ":bytes"); tr/A-Za-z0-9_\!\@\#\$\%\^\&\*\(\)-+=//dc;' < /dev/urandom | head -c $1; echo
 }
 
 function secure-string() {
-   openssl rand 1024 | openssl enc -base64 -A | head -c $1; echo
+     openssl rand 1024 | openssl enc -base64 -A | head -c $1; echo
 }
 
 function systemInformation()  { # Get current host related info.
@@ -30,11 +30,13 @@ function systemInformation()  { # Get current host related info.
 mkcd() { mkdir -p $1; cd $1 }
 
 # Tuning commands
+
 alias mv='mv -v'
 alias rm='rm -i -v'
 alias cp='cp -v'
 alias please='sudo'
 alias fuck='sudo'
+alias hold-my-beer='sudo'
 alias clean='clear'
 alias lso="ls -alG | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
 alias untarz='tar -xzf'
@@ -45,7 +47,22 @@ alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias back='cd "$OLDPWD"'
 alias ports='netstat -tulan -p TCP'
 
+# Documents and shotcuts
+
+alias personal='cd ~/Documents/Personal'
+alias ex-go='personal && cd Exercism/go'
+alias ex-clj='personal && cd Exercism/clojure'
+alias lrn-clj='personal && cd LearningClojure'
+alias lrn-go='personal && cd LearningGo'
+alias rld-util='source $DOTFILES_HOME/util.sh'
+alias rld-zsh='source ~/.zshrc'
+alias ed-util='$EDITOR $DOTFILES_HOME/util.sh'
+alias ed-zsh='$EDITOR ~/.zshrc'
+alias ed-brc='$EDITOR ~/.bashrc'
+alias ed-env='$EDITOR $DOTFILES_HOME/.env.sh'
+
 # SSH related
+
 alias sshBlickProd1='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.245.6.71 -o ServerAliveInterval=60'
 alias sshBlickProd2='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.202.118.163 -o ServerAliveInterval=60'
 alias sshBlickWPMultiSiteI='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.186.20.28 -o ServerAliveInterval=60'
@@ -55,6 +72,7 @@ alias sshBlickJenkins='ssh -o ServerAliveInterval=60 -i ~/.ssh/amazon_keys/jenki
 alias sshBlickKermaDev='ssh -i ~/.ssh/amazon_keys/kerma-partners.pem ubuntu@34.210.102.6 -o ServerAliveInterval=60'
 
 #Personal Alias and variables
+
 alias changeKeyboardMap="xmodmap ${DOTFILES_HOME}/.Xmodmap"
 alias linkNodeToBin='sudo ln -sf $(which node) /usr/bin/node'
 alias linkDownloadsDirectory='ln -s /media/Documents/jresendiz/Downloads/ ~/'
@@ -67,7 +85,7 @@ alias loadAnaconda='export PATH=/home/jresendiz/anaconda3/bin:$PATH'
 alias gomatrix='${DOTFILES_HOME}/gomatrix.sh'
 alias ideaIBus='ibus-daemon -rd'
 ## JAVA OPTS
-#alias exportJavaOpts="export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'"
+# alias exportJavaOpts="export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'"
 # Required imports for some programs
 export IBUS_ENABLE_SYNC_MODE=1
 export XMODIFIERS=""
