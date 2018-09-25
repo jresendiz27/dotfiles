@@ -142,7 +142,12 @@ if [ -d "$HOME/Software/exercism" ]; then
 if [ -d "$HOME/.rbenv/bin" ]; then                                                                                                                                                                                                                                        
   export PATH="$HOME/.rbenv/bin:$PATH";                                                                                                                                                                                                                                 
   eval "$(rbenv init -)"                                                                                                                                                                                                                                                
-fi 
+fi
+
+if [ -x "$(command -v pyenv)" ]; then
+  echo "Pyenv exists, init"
+  eval "$(pyenv init -)"
+fi
 
 # Personal stuff
 echo -e "${BLUE}##################################################################################${ENDCOLOR}"
