@@ -46,7 +46,7 @@ alias hs='history | grep'
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias back='cd "$OLDPWD"'
 alias ports='netstat -tulan -p TCP'
-
+alias ping='ping -c 5'
 # Documents and shotcuts
 
 alias personal='cd ~/Documents/Personal'

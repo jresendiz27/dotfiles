@@ -145,7 +145,6 @@ if [ -d "$HOME/.rbenv/bin" ]; then
 fi
 
 if [ -x "$(command -v pyenv)" ]; then
-  echo "Pyenv exists, init"
   eval "$(pyenv init -)"
 fi
 
