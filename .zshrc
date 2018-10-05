@@ -9,8 +9,6 @@ export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=1000000                   # big big history
 export HISTFILESIZE=1000000               # big big history
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
-#shopt -s histappend
-
 export EDITOR='vim'
 
 # Set name of the theme to load.
@@ -63,14 +61,7 @@ ZSH_THEME="jresendiz" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git setopt share_history tmux ruby)
 
-# export GOPATH="`echo $HOME`/Software/go"
-# export GOROOT="/home/jresendiz/Software/go"
-# export PATH=$PATH:$GOROOT/bin
-
 # User configuration
-
-# export PATH="/Users/jresendiz/.sdkman/candidates/groovy/current/bin:/Users/jresendiz/.sdkman/candidates/grails/current/bin:/Users/jresendiz/.sdkman/candidates/gradle/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -137,7 +128,11 @@ fi
 
 if [ -d "$HOME/Software/exercism" ]; then
     export PATH="$HOME/Software/exercism:$PATH"
-  fi
+fi
+
+if [ -d "$HOME/go" ]; then
+    export GOPATH="$HOME/go"
+fi
 
 if [ -d "$HOME/.rbenv/bin" ]; then                                                                                                                                                                                                                                        
   export PATH="$HOME/.rbenv/bin:$PATH";                                                                                                                                                                                                                                 
