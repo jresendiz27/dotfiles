@@ -80,7 +80,6 @@ alias sshBlickKermaDev='ssh -i ~/.ssh/amazon_keys/kerma-partners.pem ubuntu@34.2
 alias changeKeyboardMap="xmodmap ${DOTFILES_HOME}/.Xmodmap"
 alias linkNodeToBin='sudo ln -sf $(which node) /usr/bin/node'
 alias linkDownloadsDirectory='ln -s /media/Documents/jresendiz/Downloads/ ~/'
-alias gitBranchParent="git show-branch | grep '*' | grep -v '$(git rev-parse --abbrev-ref HEAD)' | head -n1 | sed 's/.*\[\(.*\)\].*/\1/' | sed 's/[\^~].*//'"
 alias gitRecentBranches='for k in `git branch | perl -pe s/^..//`; do echo -e `git show --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k -- | head -n 1`\\t$k; done | sort -r'
 alias mostUsedCommands=$'history | awk \'{a[$2]++}END{for(i in a){print a[i] " " i}}\' | sort -rn | head'
 alias removeQueuesFromRabbit='rabbitmqadmin -f tsv -q list queues name | while read queue; do rabbitmqadmin -q delete queue name=${queue}; done;'
@@ -93,5 +92,3 @@ alias ideaIBus='ibus-daemon -rd'
 export IBUS_ENABLE_SYNC_MODE=1
 export XMODIFIERS=""
 export MAVEN_OPTS="-Xms512m"
-# Clear screen
-reset
