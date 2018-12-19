@@ -75,6 +75,7 @@ alias sshBlickDatabasesI='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.186.17.7
 alias sshBlickCierraloDev='ssh -o ServerAliveInterval=60 -i ~/.ssh/amazon_keys/cierralo-dev.pem ubuntu@54.214.137.7'
 alias sshBlickJenkins='ssh -o ServerAliveInterval=60 -i ~/.ssh/amazon_keys/jenkins-blick.pem ubuntu@52.32.244.171'
 alias sshBlickKermaDev='ssh -i ~/.ssh/amazon_keys/kerma-partners.pem ubuntu@34.210.102.6 -o ServerAliveInterval=60'
+alias ssh-hosts='grep -E "^Host ([^*]+)$" $HOME/.ssh/*_config | sed \\'s/Host //\\''
 
 #Personal Alias and variables
 alias changeKeyboardMap="xmodmap ${DOTFILES_HOME}/.Xmodmap"
