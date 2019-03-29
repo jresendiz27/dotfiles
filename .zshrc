@@ -59,7 +59,7 @@ ZSH_THEME="jresendiz" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git setopt share_history tmux ruby)
+plugins=(git tmux ruby golang)
 
 # User configuration
 
@@ -145,6 +145,10 @@ fi
 
 if [ -d "$HOME/.pyenv/shims" ]; then                                                                                                                                                                        
   export PATH="$HOME/.pyenv/shims:$PATH"                                                                                                                                                                  
+fi
+
+if [ -d "$HOME/Software/web_drivers" ]; then
+  export PATH="$HOME/Software/web_drivers:$PATH"
 fi
 
 # Personal stuff

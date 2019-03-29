@@ -87,6 +87,19 @@ alias removeQueuesFromRabbit='rabbitmqadmin -f tsv -q list queues name | while r
 alias speedtest='curl http://speedtest.wdc01.softlayer.com/downloads/test10.zip -o /dev/null'
 alias gomatrix='${DOTFILES_HOME}/gomatrix.sh'
 alias ideaIBus='ibus-daemon -rd'
+
+# Bundle aliases
+alias berb='bundle exec ruby '
+alias bert='bundle exec rake test --trace'
+alias ber='bundle exec rake '
+alias bi='bundle install'
+alias bu='bundle update '
+
+# Python aliases
+alias pir='pip install -r requirements.txt'
+alias pifr='pip freeze > requirements.txt'
+alias pifg='pip freeze | grep '
+
 ## JAVA OPTS
 # alias exportJavaOpts="export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'"
 # Required imports for some programs
