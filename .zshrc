@@ -59,7 +59,7 @@ ZSH_THEME="jresendiz" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux ruby golang)
+plugins=(git tmux ruby golang bundler go)
 
 # User configuration
 
@@ -106,10 +106,6 @@ if [ -f "${DOTFILES_HOME}/.env.sh" ]; then
     source "${DOTFILES_HOME}/.env.sh"
 fi
 
-if [ -d "$HOME/.rbenv/shims" ]; then
-    export PATH="$HOME/.rbenv/shims:$PATH";
-fi
-
 if [ -d "$HOME/brew/bin" ]; then
     export PATH="$HOME/brew/bin:$PATH"
 fi
@@ -134,9 +130,10 @@ if [ -d "$HOME/go" ]; then
     export GOPATH="$HOME/go"
 fi
 
-if [ -d "$HOME/.rbenv/bin" ]; then                                                                                                                                                                                                                                        
-  export PATH="$HOME/.rbenv/bin:$PATH";                                                                                                                                                                                                                                 
-  eval "$(rbenv init -)"                                                                                                                                                                                                                                                
+if [ -d "$HOME/.rbenv/bin" ]; then                                                                                                     export PATH="$HOME/.rbenv/bin:$PATH";                                                                                                eval "$(rbenv init -)";                                                                                                            fi
+
+if [ -d "$HOME/.rbenv/shims" ]; then
+  export PATH="$HOME/.rbenv/shims:$PATH";
 fi
 
 if [ -d "$HOME/.pyenv/bin" ]; then
