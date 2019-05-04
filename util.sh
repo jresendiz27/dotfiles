@@ -28,6 +28,12 @@ function systemInformation()  { # Get current host related info.
     #echo
 }
 
+# Arguments: $1 - Local port, $2 remote port, $3 instance, i.e. blue-kueski
+# ssh_tunnel 9292 8085 blue-affiliate_marketing 
+
+ssh_tunnel() {
+  eval "ssh -NL ${1}:localhost:${2} ${3} -v"
+}
 function mkcd() { mkdir -p $1; cd $1; }
 backup() { cp "$1"{,.bak};}
 
