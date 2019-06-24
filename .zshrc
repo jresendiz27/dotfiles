@@ -8,14 +8,14 @@ export DOTFILES_HOME=`echo $HOME`/.dotfiles
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=1000000                   # big big history
 export HISTFILESIZE=1000000               # big big history
-export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear:hs"
 export EDITOR='vim'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="jresendiz" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty_256, wezm
+ZSH_THEME="nanotech" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty_256, wezm
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -59,7 +59,7 @@ ZSH_THEME="jresendiz" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux ruby golang bundler go)
+plugins=(docker git golang go ruby) # git tmux ruby golang bundler go
 
 # User configuration
 
