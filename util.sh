@@ -31,6 +31,11 @@ function systemInformation()  { # Get current host related info.
 # Arguments: $1 - Local port, $2 remote port, $3 instance, i.e. blue-kueski
 # ssh_tunnel 9292 8085 blue-affiliate_marketing 
 
+function find_logs() {
+  for i in $(find ./ -name "*.log*"); do echo -e ">> File: $i \n"; grep ${i} -C 4 -i -e $1; done;    
+}
+
+
 ssh_tunnel() {
   eval "ssh -NL ${1}:localhost:${2} ${3} -v"
 }
@@ -98,7 +103,7 @@ alias ideaIBus='ibus-daemon -rd'
 alias berb='bundle exec ruby '
 alias bert='bundle exec rake test --trace'
 alias ber='bundle exec rake '
-alias bi='bundle install'
+alias bi='bundle install --force'
 alias bu='bundle update '
 
 # Python aliases
