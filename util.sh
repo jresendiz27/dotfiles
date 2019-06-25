@@ -25,21 +25,32 @@ function systemInformation()  { # Get current host related info.
     #echo -e "\n${RED}Local IP Address :$NC" ; echo ${MY_IP:-"Not connected"}
     #echo -e "\n${RED}ISP Address :$NC" ; echo ${MY_ISP:-"Not connected"}
     #echo -e "\n${RED}Open connections :$NC "; netstat -pan --inet;
-    #echo
+    #echo 
 }
 
-# Arguments: $1 - Local port, $2 remote port, $3 instance, i.e. blue-kueski
-# ssh_tunnel 9292 8085 blue-affiliate_marketing 
 
+# Arguments $1: Ticket id from deploy 
+# All the logs are stored in ~/Desktop/logs-deploys 
+function upload_logs () {
+  path_file=`ls -h ~/Desktop/logs-deploys/$1*.log`
+  filename=`basename $path_file`
+  AWS_PROFILE=production aws s3 cp $path_file s3://kueski-production-logs/deployments/$filename
+  echo "File:$filename upladed to deployments bucket"
+}
+
+# Arguments: $1 string to look for in logs 
 function find_logs() {
   for i in $(find ./ -name "*.log*"); do echo -e ">> File: $i \n"; grep ${i} -C 4 -i -e $1; done;    
 }
 
-
+# Arguments: $1 - Local port, $2 remote port, $3 instance, i.e. blue-kueski                                                                                                                                   
+# ssh_tunnel 9292 8085 blue-affiliate_marketing   
 ssh_tunnel() {
   eval "ssh -NL ${1}:localhost:${2} ${3} -v"
 }
+
 function mkcd() { mkdir -p $1; cd $1; }
+
 backup() { cp "$1"{,.bak};}
 
 # Tuning commands
