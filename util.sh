@@ -9,6 +9,12 @@ function secure-string() {
     openssl rand 1024 | openssl enc -base64 -A | head -c $1; echo
 }
 
+function colours() {
+  for i in {0..255}; do
+    printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
+  done
+}
+
 function systemInformation()  { # Get current host related info.
     echo -e "${RED} - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${ENDCOLOR}"
     echo -e "\n${RED}You are logged on ${ENDCOLOR} $HOST "
@@ -51,7 +57,8 @@ ssh_tunnel() {
 
 function mkcd() { mkdir -p $1; cd $1; }
 
-backup() { cp "$1"{,.bak};}
+function backup() { cp -rfv "$1"{,.bak-$(date '+%Y-%m-%d_%H:%M:%S')};}
+
 
 # Tuning commands
 alias mv='mv -v'
@@ -121,6 +128,10 @@ alias bu='bundle update '
 alias pir='pip install -r requirements.txt'
 alias pifr='pip freeze > requirements.txt'
 alias pifg='pip freeze | grep '
+
+## Export Software folder
+
+export PATH=$PATH:~/Software
 
 ## JAVA OPTS
 # alias exportJavaOpts="export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'"
