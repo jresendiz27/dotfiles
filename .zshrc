@@ -15,7 +15,7 @@ export EDITOR='vim'
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="nanotech" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty_256, wezm
+ZSH_THEME="lambda" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty_256, wezm, minimal
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -110,9 +110,6 @@ if [ -d "$HOME/brew/bin" ]; then
     export PATH="$HOME/brew/bin:$PATH"
 fi
 
-if [ -f "$HOME/brew/bin/virtualenvwrapper.sh" ]; then
-    source "$HOME/brew/bin/virtualenvwrapper.sh";
-fi
 
 if [ -d "$HOME/Software/go" ]; then 
     export PATH="$HOME/Software/go/bin:$PATH"  
@@ -130,7 +127,10 @@ if [ -d "$HOME/go" ]; then
     export GOPATH="$HOME/go"
 fi
 
-if [ -d "$HOME/.rbenv/bin" ]; then                                                                                                     export PATH="$HOME/.rbenv/bin:$PATH";                                                                                                eval "$(rbenv init -)";                                                                                                            fi
+if [ -d "$HOME/.rbenv/bin" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH";
+  eval "$(rbenv init -)";
+fi
 
 if [ -d "$HOME/.rbenv/shims" ]; then
   export PATH="$HOME/.rbenv/shims:$PATH";
@@ -148,16 +148,24 @@ if [ -d "$HOME/Software/web_drivers" ]; then
   export PATH="$HOME/Software/web_drivers:$PATH"
 fi
 
+if [ -x "$(command -v brew)" ]; then
+  export OPENSSL_HOME=$(brew --prefix openssl);
+else
+  # This should be considered using something else instead of hardcoding the SSL
+  export OPENSSL_HOME='/usr/local/opt/openssl';
+fi
+export PATH="$OPENSSL_HOME/bin:$PATH"
+export LDFLAGS="-L$OPENSSL_HOME/lib"
+export CPPFLAGS="-I$OPENSSL_HOME/include"
+export PKG_CONFIG_PATH="$OPENSSL_HOME/lib/pkgconfig"
+export NUMBER_OF_HEADERS=$(ls -p $DOTFILES_HOME/headers | wc -l)
+export HEADER="headers/header_$(( ( RANDOM % NUMBER_OF_HEADERS ) + 1)).txt"
 # Personal stuff
-echo -e "${BLUE}##################################################################################${ENDCOLOR}"
-echo -e "${BLUE}#                                                                                #${ENDCOLOR}"
-echo -e "${BLUE}#           _      __    __                     ___      __       __             #${ENDCOLOR}"
-echo -e "${BLUE}#          | | /| / /__ / /______  __ _  ___   / _ )___ / /____  / /             #${ENDCOLOR}"
-echo -e "${BLUE}#          | |/ |/ / -_) / __/ _ \/  ' \/ -_) / _  / -_) __/ _ \/_/              #${ENDCOLOR}"
-echo -e "${BLUE}#          |__/|__/\__/_/\__/\___/_/_/_/\__/ /____/\__/\__/\___(_)               #${ENDCOLOR}"
-echo -e "${BLUE}#                                                                                #${ENDCOLOR}"
-echo -e "${BLUE}#                                                                                #${ENDCOLOR}"
-echo -e "${BLUE}##################################################################################${ENDCOLOR}"
+if [ -x "$(command -v lolcat)" ]; then
+  cat $DOTFILES_HOME/$HEADER | lolcat
+else
+  cat $DOTFILES_HOME/$HEADER
+fi
 echo -e ""
 echo -e ""
 fortune -na
