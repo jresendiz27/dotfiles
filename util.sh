@@ -116,6 +116,8 @@ alias removeQueuesFromRabbit='rabbitmqadmin -f tsv -q list queues name | while r
 alias speedtest='curl http://speedtest.wdc01.softlayer.com/downloads/test10.zip -o /dev/null'
 alias gomatrix='${DOTFILES_HOME}/gomatrix.sh'
 alias ideaIBus='ibus-daemon -rd'
+alias purgeDocker='docker images -a | grep none | awk `{print "docker rmi -f "$3}` | sh'
+
 
 # Bundle aliases
 alias berb='bundle exec ruby '
@@ -132,6 +134,8 @@ alias pifg='pip freeze | grep '
 ## Export Software folder
 
 export PATH=$PATH:~/Software
+# Useful aliases
+alias tf='terraform'
 
 ## JAVA OPTS
 # alias exportJavaOpts="export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'"
