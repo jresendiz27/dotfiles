@@ -117,6 +117,7 @@ alias speedtest='curl http://speedtest.wdc01.softlayer.com/downloads/test10.zip 
 alias gomatrix='${DOTFILES_HOME}/gomatrix.sh'
 alias ideaIBus='ibus-daemon -rd'
 alias purgeDocker='docker images -a | grep none | awk `{print "docker rmi -f "$3}` | sh'
+alias nuke_docker="docker rm -f $(docker ps -aq) ; docker images | grep none | awk '{print \"docker rmi -f \"$3\"\"}' | sh"
 
 
 # Bundle aliases
