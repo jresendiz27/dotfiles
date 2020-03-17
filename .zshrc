@@ -154,6 +154,10 @@ if [ -d "$HOME/Software/web_drivers" ]; then
   export PATH="$HOME/Software/web_drivers:$PATH"
 fi
 
+if [ -x "$(command -v starship)" ]; then
+  eval "$(starship init zsh)"
+fi
+
 if [ -x "$(command -v brew)" ]; then
   export OPENSSL_HOME=$(brew --prefix openssl);
 else

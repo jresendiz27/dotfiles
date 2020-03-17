@@ -1,0 +1,18 @@
+[memory_usage]
+show_percentage = true
+show_swap = false
+threshold = -1
+symbol = " "
+separator = "/"
+style = "bold dimmed green"
+disabled = false
+
+[time]
+disabled = false
+format = "[ %T ]"
+utc_time_offset = "-6"
+
+[cmd_duration]
+disabled = false
+min_time = 500
+prefix = "underwent "
