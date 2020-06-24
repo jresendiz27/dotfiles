@@ -1,7 +1,5 @@
 # Loading bash information if exists
-if [ -f "$HOME/.bash_profile" ]; then
-    source "$HOME/.bash_profile";
-fi
+[ -f "$HOME/.bash_profile" ] && source "$HOME/.bash_profile";
 # Path to your oh-my-zsh installation.
 export ZSH=`echo $HOME`/.oh-my-zsh
 export DOTFILES_HOME=`echo $HOME`/.dotfiles
@@ -10,7 +8,6 @@ export HISTSIZE=1000000                   # big big history
 export HISTFILESIZE=1000000               # big big history
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear:hs"
 export EDITOR='vim'
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -59,7 +56,7 @@ ZSH_THEME="lambda" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty_25
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(docker git golang go ruby) # git tmux ruby golang bundler go
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting) # git tmux ruby golang bundler go
 
 # User configuration
 
@@ -98,72 +95,25 @@ BLUE=$'\e[00;36m';
 ENDCOLOR=$'\e[00m';
 # useful functions
 
-if [ -f "${DOTFILES_HOME}/util.sh" ]; then
-    source "${DOTFILES_HOME}/util.sh"
-fi
+[ -f "${DOTFILES_HOME}/util.sh" ] && source "${DOTFILES_HOME}/util.sh";
+[ -f "${DOTFILES_HOME}/.env.sh" ] && source "${DOTFILES_HOME}/.env.sh";
+[ -d "$HOME/brew/bin" ] && export PATH="$HOME/brew/bin:$PATH";
+[ -d "$HOME/Software/go" ] && export PATH="$HOME/Software/go/bin:$PATH";
+[ -d "$HOME/Software/leiningen" ] && export PATH="$HOME/Software/leiningen:$PATH";
+[ -d "$HOME/Software/exercism" ] && export PATH="$HOME/Software/exercism:$PATH";
+[ -d "$HOME/go" ] && export GOPATH="$HOME/go";
+[ -d "$HOME/.rbenv/bin" ] && export PATH="$HOME/.rbenv/bin:$PATH" && eval "$(rbenv init -)";
+[ -d "$HOME/.rbenv/shims" ] && export PATH="$HOME/.rbenv/shims:$PATH";
+[ -d "$HOME/.pyenv/" ] &&  export PYENV_ROOT="$HOME/.pyenv/" && export PATH="$PYENV_ROOT/bin:$PATH";
+[ -d "$HOME/.pyenv/bin" ] && export PATH="$HOME/.pyenv/bin:$PATH" && eval "$(pyenv init -)";
+[ -d "$HOME/.pyenv/shims" ] && export PATH="$HOME/.pyenv/shims:$PATH";
+[ -d "$HOME/Software/web_drivers" ] && export PATH="$HOME/Software/web_drivers:$PATH";
 
-if [ -f "${DOTFILES_HOME}/.env.sh" ]; then
-    source "${DOTFILES_HOME}/.env.sh"
-fi
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="`echo $HOME`/.sdkman"
+[[ -s "`echo $HOME`/.sdkman/bin/sdkman-init.sh" ]] && source "`echo $HOME`/.sdkman/bin/sdkman-init.sh"
 
-if [ -d "$HOME/brew/bin" ]; then
-    export PATH="$HOME/brew/bin:$PATH"
-fi
-
-
-if [ -d "$HOME/Software/go" ]; then 
-    export PATH="$HOME/Software/go/bin:$PATH"  
-fi
-
-if [ -d "$HOME/Software/leiningen" ]; then
-    export PATH="$HOME/Software/leiningen:$PATH"
-fi
-
-if [ -d "$HOME/Software/exercism" ]; then
-    export PATH="$HOME/Software/exercism:$PATH"
-fi
-
-if [ -d "$HOME/go" ]; then
-    export GOPATH="$HOME/go"
-fi
-
-if [ -d "$HOME/.rbenv/bin" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH";
-  eval "$(rbenv init -)";
-fi
-
-if [ -d "$HOME/.rbenv/shims" ]; then
-  export PATH="$HOME/.rbenv/shims:$PATH";
-fi
-
-if [ -d "$HOME/.pyenv/" ]; then
-  export PYENV_ROOT="$HOME/.pyenv/"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-fi
-
-if [ -d "$HOME/.pyenv/bin" ]; then
-  export PATH="$HOME/.pyenv/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
-
-if [ -d "$HOME/.pyenv/shims" ]; then                                                                                                                                                                        
-  export PATH="$HOME/.pyenv/shims:$PATH"                                                                                                                                                                  
-fi
-
-if [ -d "$HOME/Software/web_drivers" ]; then
-  export PATH="$HOME/Software/web_drivers:$PATH"
-fi
-
-if [ -x "$(command -v starship)" ]; then
-  eval "$(starship init zsh)"
-fi
-
-if [ -x "$(command -v brew)" ]; then
-  export OPENSSL_HOME=$(brew --prefix openssl);
-else
-  # This should be considered using something else instead of hardcoding the SSL
-  export OPENSSL_HOME='/usr/local/opt/openssl';
-fi
+export PATH="$HOME/bin:$PATH"
 export PATH="$OPENSSL_HOME/bin:$PATH"
 export LDFLAGS="-L$OPENSSL_HOME/lib"
 export CPPFLAGS="-I$OPENSSL_HOME/include"
@@ -171,6 +121,7 @@ export PKG_CONFIG_PATH="$OPENSSL_HOME/lib/pkgconfig"
 export NUMBER_OF_HEADERS=$(ls -p $DOTFILES_HOME/headers | wc -l)
 export HEADER="headers/header_$(( ( RANDOM % NUMBER_OF_HEADERS ) + 1)).txt"
 # Personal stuff
+[ -x "$(command -v starship)" ] && eval "$(starship init zsh)";
 if [ -x "$(command -v lolcat)" ]; then
   cat $DOTFILES_HOME/$HEADER | lolcat
 else
@@ -181,19 +132,3 @@ echo -e ""
 fortune -na
 echo -e ""
 echo -e ""
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="`echo $HOME`/.sdkman"
-[[ -s "`echo $HOME`/.sdkman/bin/sdkman-init.sh" ]] && source "`echo $HOME`/.sdkman/bin/sdkman-init.sh"
-
-export PATH="$HOME/bin:$PATH"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# added by travis gem
-[ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"

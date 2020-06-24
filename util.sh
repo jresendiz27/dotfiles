@@ -9,6 +9,15 @@ function secure-string() {
     openssl rand 1024 | openssl enc -base64 -A | head -c $1; echo
 }
 
+function setupSSLForBrew() {
+    [ -x "$(command -v brew)" ] && export OPENSSL_HOME=$(brew --prefix openssl);
+}
+
+function setupNVM() {
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" &>/dev/null; # This loads nvm
+}
+
 function colours() {
   for i in {0..255}; do
     printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
@@ -117,8 +126,9 @@ alias speedtest='curl http://speedtest.wdc01.softlayer.com/downloads/test10.zip 
 alias gomatrix='${DOTFILES_HOME}/gomatrix.sh'
 alias ideaIBus='ibus-daemon -rd'
 alias purgeDocker='docker images -a | grep none | awk `{print "docker rmi -f "$3}` | sh'
-alias nuke_docker="docker rm -f $(docker ps -aq) ; docker images | grep none | awk '{print \"docker rmi -f \"$3\"\"}' | sh"
-
+alias nuke_docker="docker rm -f \$(docker ps -aq) ; docker images | grep none | awk '{print \"docker rmi -f \"$3\"\"}' | sh"
+alias disableSleep='sudo pmset disablesleep 1'
+alias enableSleep='sudo pmset disableSleep 0'
 
 # Bundle aliases
 alias berb='bundle exec ruby '
