@@ -56,7 +56,7 @@ ZSH_THEME="lambda" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty_25
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting) # git tmux ruby golang bundler go
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker) # git tmux ruby golang bundler go
 
 # User configuration
 
@@ -112,6 +112,48 @@ ENDCOLOR=$'\e[00m';
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="`echo $HOME`/.sdkman"
 [[ -s "`echo $HOME`/.sdkman/bin/sdkman-init.sh" ]] && source "`echo $HOME`/.sdkman/bin/sdkman-init.sh"
+if [ -f "$HOME/Software/terraform" ]; then
+    export PATH="$HOME/Software/terraform:$PATH"
+fi
+
+if [ -d "$HOME/Software/exercism" ]; then
+    export PATH="$HOME/Software/exercism:$PATH"
+fi
+
+if [ -d "$HOME/go" ]; then
+    export GOPATH="$HOME/go"
+fi
+
+if [ -d "$HOME/.rbenv/bin" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH";
+  eval "$(rbenv init -)";
+fi
+
+if [ -d "$HOME/.rbenv/shims" ]; then
+  export PATH="$HOME/.rbenv/shims:$PATH";
+fi
+
+if [ -d "$HOME/.pyenv/" ]; then
+  export PYENV_ROOT="$HOME/.pyenv/"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+fi
+
+if [ -d "$HOME/.pyenv/bin" ]; then
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+
+if [ -d "$HOME/.pyenv/shims" ]; then                                                                                                                                                                        
+  export PATH="$HOME/.pyenv/shims:$PATH"                                                                                                                                                                  
+fi
+
+if [ -d "$HOME/Software/web_drivers" ]; then
+  export PATH="$HOME/Software/web_drivers:$PATH"
+fi
+
+if [ -x "$(command -v starship)" ]; then
+  eval "$(starship init zsh)"
+fi
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$OPENSSL_HOME/bin:$PATH"

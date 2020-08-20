@@ -1,11 +1,11 @@
 # This is Git's per-user configuration file.
 [user]
-  name = Juan Reséndiz
-  email = jresendiz27@gmail.com
+    name = Juan Reséndiz
+    email = jresendiz27@gmail.com
 [includeIf "gitdir:~/repo/"]
-  path = ~/repo/.kueski-gitconfig
+    path = ~/repo/.kueski-gitconfig
 [core]
-  logAllRefUpdates = true
+    logAllRefUpdates = true
 	editor = nano
 	autocrlf = input
 	excludesfile = /Users/jresendiz/.gitignore_global
