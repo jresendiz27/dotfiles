@@ -1,5 +1,5 @@
 # Loading bash information if exists
-[ -f "$HOME/.bash_profile" ] && source "$HOME/.bash_profile";
+# [ -f "$HOME/.bash_profile" ] && source "$HOME/.bash_profile";
 # Path to your oh-my-zsh installation.
 export ZSH=`echo $HOME`/.oh-my-zsh
 export DOTFILES_HOME=`echo $HOME`/.dotfiles
@@ -56,7 +56,7 @@ ZSH_THEME="lambda" #miloshadzic, avit, gnzh(ruby) gallifrey, nanotech, sporty_25
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker) # git tmux ruby golang bundler go
+plugins=(git) # git tmux ruby golang bundler go
 
 # User configuration
 
@@ -112,22 +112,6 @@ ENDCOLOR=$'\e[00m';
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="`echo $HOME`/.sdkman"
 [[ -s "`echo $HOME`/.sdkman/bin/sdkman-init.sh" ]] && source "`echo $HOME`/.sdkman/bin/sdkman-init.sh"
-if [ -f "$HOME/Software/terraform" ]; then
-    export PATH="$HOME/Software/terraform:$PATH"
-fi
-
-if [ -d "$HOME/Software/exercism" ]; then
-    export PATH="$HOME/Software/exercism:$PATH"
-fi
-
-if [ -d "$HOME/go" ]; then
-    export GOPATH="$HOME/go"
-fi
-
-if [ -d "$HOME/.rbenv/bin" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH";
-  eval "$(rbenv init -)";
-fi
 
 if [ -d "$HOME/.rbenv/shims" ]; then
   export PATH="$HOME/.rbenv/shims:$PATH";
@@ -143,25 +127,18 @@ if [ -d "$HOME/.pyenv/bin" ]; then
   eval "$(pyenv init -)"
 fi
 
-if [ -d "$HOME/.pyenv/shims" ]; then                                                                                                                                                                        
-  export PATH="$HOME/.pyenv/shims:$PATH"                                                                                                                                                                  
-fi
-
-if [ -d "$HOME/Software/web_drivers" ]; then
-  export PATH="$HOME/Software/web_drivers:$PATH"
-fi
-
-if [ -x "$(command -v starship)" ]; then
-  eval "$(starship init zsh)"
+if [ -d "$HOME/.pyenv/shims" ]; then
+  export PATH="$HOME/.pyenv/shims:$PATH"
 fi
 
 export PATH="$HOME/bin:$PATH"
-export PATH="$OPENSSL_HOME/bin:$PATH"
-export LDFLAGS="-L$OPENSSL_HOME/lib"
-export CPPFLAGS="-I$OPENSSL_HOME/include"
-export PKG_CONFIG_PATH="$OPENSSL_HOME/lib/pkgconfig"
 export NUMBER_OF_HEADERS=$(ls -p $DOTFILES_HOME/headers | wc -l)
 export HEADER="headers/header_$(( ( RANDOM % NUMBER_OF_HEADERS ) + 1)).txt"
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export GEM_HOME="$HOME/.rvm/gems/ruby-3.3.0"
+export GEM_PATH="$HOME/.rvm/gems/ruby-3.3.0:$HOME/.rvm/gems/ruby-3.2.2@global"
+
 # Personal stuff
 [ -x "$(command -v starship)" ] && eval "$(starship init zsh)";
 if [ -x "$(command -v lolcat)" ]; then
@@ -174,3 +151,5 @@ echo -e ""
 fortune -na
 echo -e ""
 echo -e ""
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
