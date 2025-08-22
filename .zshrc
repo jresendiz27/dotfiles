@@ -131,6 +131,12 @@ if [ -d "$HOME/.pyenv/shims" ]; then
   export PATH="$HOME/.pyenv/shims:$PATH"
 fi
 
+
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+
 export PATH="$HOME/bin:$PATH"
 export NUMBER_OF_HEADERS=$(ls -p $DOTFILES_HOME/headers | wc -l)
 export HEADER="headers/header_$(( ( RANDOM % NUMBER_OF_HEADERS ) + 1)).txt"
@@ -153,3 +159,9 @@ echo -e ""
 echo -e ""
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
