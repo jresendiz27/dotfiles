@@ -2,26 +2,22 @@
 [user]
     name = Juan Reséndiz
     email = jresendiz27@gmail.com
-[includeIf "gitdir:~/repo/"]
-    path = ~/repo/.billpocket-gitconfig
+
+[includeIf "gitdir:~/Documents/Kavak/**"]
+    path = ~/Documents/Kavak/.kavak-gitconfig
+
 [core]
     logAllRefUpdates = true
-	editor = nano
-	autocrlf = input
-	excludesfile = /Users/jresendiz/.gitignore_global
-[alias]
-	pretty-log = log --graph --abbrev-commit --decorate --format=format:\"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(magenta)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)\"
-	recent-branches = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
-	remove-merged-to-master="!git branch --merged | grep  --invert-match \"*\" | grep -v master | grep -v production | grep -v integration | xargs -n 1 git branch -d"
-        ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	list-alias = "!git config -l | grep alias | cut -c 7-"
-
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    editor = nano
+    autocrlf = input
+    excludesfile = /Users/jresendiz/.gitignore_global
 
 [alias]
-	merge = 'merge --no-ff'
+    pretty-log = log --graph --abbrev-commit --decorate --format=format:\"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(magenta)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)\"
+    recent-branches = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+    remove-merged-to-master="!git branch --merged | grep  --invert-match \"*\" | grep -v master | grep -v production | grep -v integration | xargs -n 1 git branch -d"
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    list-alias = "!git config -l | grep alias | cut -c 7-"
+
+[alias]
+    merge = 'merge --no-ff'

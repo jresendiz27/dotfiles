@@ -1,6 +1,41 @@
 #!/usr/bin/env bash
 # Utilities bash, some useful aliases and functions
 
+# kvk functions
+
+kvk_token() {
+    local full_command="$*"
+    
+    # Execute the command and filter out the "Generating token..." line
+    eval "kavak auth token new $full_command" | grep -v "Generating token"
+}
+
+kvk_commit() {
+    local feat="$(cat .kavak_cli/feature.txt)"
+
+    if [ $# -eq 0 ]; then
+        echo "Usage: kvk_commit \"commit message\""
+        return 1
+    fi
+    
+    local commit_message="$1"
+    
+    # Check if we're in a git repository
+    if ! git rev-parse --git-dir > /dev/null 2>&1; then
+        echo "Error: Not in a git repository"
+        return 1
+    fi
+    
+    # Add all changes
+    git add .
+    
+    # Commit with the provided message
+    git commit -m "feat $feat: $commit_message"
+    
+    # Show git status
+    git status --short
+}
+
 function random-string () {
     perl -pe 'binmode(STDIN, ":bytes"); tr/A-Za-z0-9_\!\@\#\$\%\^\&\*\(\)-+=//dc;' < /dev/urandom | head -c $1; echo
 }
@@ -104,7 +139,7 @@ alias ed-zsh='$EDITOR ~/.zshrc'
 alias ed-brc='$EDITOR ~/.bashrc'
 alias ed-env='$EDITOR $DOTFILES_HOME/.env.sh'
 alias dotfiles="cd $DOTFILES_HOME"
-
+alias jrgit="GIT_SSH_COMMAND='ssh -i ~/.ssh/id_ed25519_jresendiz27' git"
 # SSH related
 alias sshBlickProd1='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.245.6.71 -o ServerAliveInterval=60'
 alias sshBlickProd2='ssh -i ~/.ssh/amazon_keys/blick.pem ubuntu@54.202.118.163 -o ServerAliveInterval=60'
@@ -154,3 +189,7 @@ alias tf='terraform'
 export IBUS_ENABLE_SYNC_MODE=1
 export XMODIFIERS=""
 export MAVEN_OPTS="-Xms512m"
+
+# Useful RubyFunction/Aliases
+alias decode_jwt='bundle exec --gemfile $HOME/Documents/random_scripts/Gemfile ruby $HOME/Documents/random_scripts/decode_jwt.rb'
+alias uuidv5='bundle exec --gemfile $HOME/Documents/random_scripts/Gemfile ruby $HOME/Documents/random_scripts/uuidv5_generate.rb'

@@ -101,7 +101,7 @@ ENDCOLOR=$'\e[00m';
 [ -d "$HOME/Software/go" ] && export PATH="$HOME/Software/go/bin:$PATH";
 [ -d "$HOME/Software/leiningen" ] && export PATH="$HOME/Software/leiningen:$PATH";
 [ -d "$HOME/Software/exercism" ] && export PATH="$HOME/Software/exercism:$PATH";
-[ -d "$HOME/go" ] && export GOPATH="$HOME/go";
+[ -d "$HOME/go" ] && export GOPATH="$HOME/go" && export PATH="$HOME/go/bin:$PATH";
 [ -d "$HOME/.rbenv/bin" ] && export PATH="$HOME/.rbenv/bin:$PATH" && eval "$(rbenv init -)";
 [ -d "$HOME/.rbenv/shims" ] && export PATH="$HOME/.rbenv/shims:$PATH";
 [ -d "$HOME/.pyenv/" ] &&  export PYENV_ROOT="$HOME/.pyenv/" && export PATH="$PYENV_ROOT/bin:$PATH";
@@ -130,7 +130,6 @@ fi
 if [ -d "$HOME/.pyenv/shims" ]; then
   export PATH="$HOME/.pyenv/shims:$PATH"
 fi
-
 
 if [ -d "$HOME/.local/bin" ]; then
   export PATH="$HOME/.local/bin:$PATH"
