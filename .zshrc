@@ -151,6 +151,11 @@ if [ -x "$(command -v lolcat)" ]; then
 else
   cat $DOTFILES_HOME/$HEADER
 fi
+
+if [ -x "$(command -v kubectl)" ]; then
+  source <(kubectl completion zsh)
+fi
+
 echo -e ""
 echo -e ""
 fortune -na

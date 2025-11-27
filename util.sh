@@ -193,3 +193,6 @@ export MAVEN_OPTS="-Xms512m"
 # Useful RubyFunction/Aliases
 alias decode_jwt='bundle exec --gemfile $HOME/Documents/random_scripts/Gemfile ruby $HOME/Documents/random_scripts/decode_jwt.rb'
 alias uuidv5='bundle exec --gemfile $HOME/Documents/random_scripts/Gemfile ruby $HOME/Documents/random_scripts/uuidv5_generate.rb'
+alias kcommit='bundle exec --gemfile $HOME/Documents/random_scripts/Gemfile ruby $HOME/Documents/random_scripts/kcommit.rb' 
+alias kbranch='bundle exec --gemfile $HOME/Documents/random_scripts/Gemfile ruby $HOME/Documents/random_scripts/kbranch.rb'
+
